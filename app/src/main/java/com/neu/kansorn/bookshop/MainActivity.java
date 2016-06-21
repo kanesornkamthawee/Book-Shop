@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this,BookActivity.class);
                     intent.putExtra("Name",nameLogInString);
                     startActivity(intent);
-                    
+                        
                     Toast.makeText(context, "Welcome User "+ userString ,Toast.LENGTH_LONG).show();
                     finish();
                 }
