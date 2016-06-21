@@ -1,19 +1,28 @@
 package com.neu.kansorn.bookshop;
 
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+
+
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
+
+import java.io.IOException;
 
 public class SignUpActivity extends AppCompatActivity {
 
     //Explicit ประกาศตัวแปร
     private EditText nameEditText, userEditeText, passwordEditText;
     private String nameString, userString, passwordString;
-    private static final String urlPHP = "http://swiftcodingthai.com/new/add_user_master.php";
+    private static final String urlPHP = "http://swiftcodingthai.com/neu/add_user_master.php";
 
 
     @Override
@@ -54,8 +63,33 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void uploadToServer() {
 
+        OkHttpClient okHttpClient = new OkHttpClient();
+        RequestBody requestBody = new FormEncodingBuilder()
+                .add("isAdd","true")
+                .add("Name",nameString)
+                .add("User",userString)
+                .add("Password",passwordString)
+                .build();
 
+        Request.Builder builder = new Request.Builder();
+        Request request = builder.url(urlPHP).post(requestBody).build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
 
-    }
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                finish();
+            }
+        });
+
+    }//upload
+
 
 }//Main Class
+
+
+
