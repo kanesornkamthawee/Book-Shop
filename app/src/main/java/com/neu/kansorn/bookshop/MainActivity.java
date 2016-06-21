@@ -3,17 +3,16 @@ package com.neu.kansorn.bookshop;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText userEditText, passwordEditText;
     private String userString, passwordString;
     private static final String urlJSON="http://swiftcodingthai.com/neu/get_user.php";
+    private String nameLogInString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     if (userString.equals(jsonObject.getString("User"))){
                         statusABoolean = false;
                         truePasswordString = jsonObject.getString("Password");
-
+                        nameLogInString = jsonObject.getString("Name");
                     }//if
 
                 }//for
@@ -95,7 +95,12 @@ public class MainActivity extends AppCompatActivity {
                 }else  if (passwordString.equals(truePasswordString)){
 
                     //password true
+                    Intent intent = new Intent(MainActivity.this,BookActivity.class);
+                    intent.putExtra("Name",nameLogInString);
+                    startActivity(intent);
+                    
                     Toast.makeText(context, "Welcome User "+ userString ,Toast.LENGTH_LONG).show();
+                    finish();
                 }
                 else {
                     //password False
