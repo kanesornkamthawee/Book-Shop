@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 }else  if (passwordString.equals(truePasswordString)){
 
                     //password true
-                    Toast.makeText(context, "Welcome User ",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Welcome User "+ userString ,Toast.LENGTH_LONG).show();
                 }
                 else {
                     //password False
