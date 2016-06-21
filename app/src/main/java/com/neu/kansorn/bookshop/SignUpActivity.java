@@ -49,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
         if (nameString.equals("") || userString.equals("")  || passwordString.equals("")){
             //Have Space
             MyAlert myAlert = new MyAlert();
-            myAlert.miDialop(this,"Have Space" , "Please Fill All Bank");
+            myAlert.myDialop(this,"Have Space" , "Please Fill All Bank");
 
         }else {
             //No Space

@@ -10,7 +10,7 @@ import android.content.DialogInterface;
  */
 public class MyAlert {
 
-    public void miDialop(Context context, String strTitle,String strMessage){
+    public void myDialop(Context context, String strTitle,String strMessage){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(false);
         builder.setIcon(R.drawable.nobita48);
