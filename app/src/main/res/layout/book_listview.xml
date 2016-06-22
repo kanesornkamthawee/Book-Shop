@@ -27,9 +27,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123"
+            android:text="150"
             android:id="@+id/textView8"
-            android:textSize="100sp"
+            android:textSize="80sp"
             android:textColor="#ffffff" />
     </LinearLayout>
 </LinearLayout>
