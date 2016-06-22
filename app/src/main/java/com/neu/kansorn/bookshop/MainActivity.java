@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 //chechUser
                 if (statusABoolean){
                     MyAlert myAlert = new MyAlert();
-                    myAlert.myDialop(context, "Not have User this","Not Have "+userString+" in Data Our.");
+                    myAlert.myDialop(context, "Not have User this","Not Have "+userString+" in Our Data Base!");
                 }else  if (passwordString.equals(truePasswordString)){
 
                     //password true
